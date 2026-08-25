@@ -11,33 +11,24 @@ const SCOPES = [
   'https://www.googleapis.com/auth/spreadsheets'
 ];
 
-const TOKEN_PATH = 'token.json';
 
 const spreadsheetId =
   '1M60CnruxHFXZZTDEEWvHSlL2uM5QcBeEtzOff9fxgNc';
 
-const credentials = JSON.parse(
-  fs.readFileSync('credentials.json')
-);
-
-const {
-  client_secret,
-  client_id,
-  redirect_uris
-} = credentials.web;
-
 const oAuth2Client = new google.auth.OAuth2(
-  client_id,
-  client_secret,
-  redirect_uris[0]
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  process.env.GOOGLE_REDIRECT_URI || 'http://localhost:8080/sheets-auth'
 );
 
 
-// If authorized before,
-// load the saved token.
-if (fs.existsSync(TOKEN_PATH)) {
+if (process.env.GOOGLE_TOKEN) {
+  oAuth2Client.setCredentials(
+    JSON.parse(process.env.GOOGLE_TOKEN)
+  );
+} else if (fs.existsSync('token.json')) {
   const token = JSON.parse(
-    fs.readFileSync(TOKEN_PATH)
+    fs.readFileSync('token.json')
   );
 
   oAuth2Client.setCredentials(token);
@@ -318,9 +309,9 @@ app.get('/sheets-auth', async (req, res) => {
     oAuth2Client.setCredentials(tokens);
 
     fs.writeFileSync(
-      TOKEN_PATH,
-      JSON.stringify(tokens)
-    );
+  'token.json',
+  JSON.stringify(tokens)
+);
 
     console.log('Google Sheets token saved.');
 
