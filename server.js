@@ -353,6 +353,8 @@ app.get('/authorize-sheets', (req, res) => {
   res.redirect(authUrl);
 });
 
-app.listen(8080, () => {
-  console.log('listening at http://localhost:8080');
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
