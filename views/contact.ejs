@@ -1,56 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Isaiah</title>
+
+  <title>Contact | Isaiah Rodriguez</title>
+
   <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
 
   <header class="page-header">
+
     <%- include('partials/nav') %>
 
-    <h1>Contact Me</h1>
-    <p>Have a question or want to connect? Send me a message below.</p>
+    <h1>Contact</h1>
+
+    <p>
+      Have a question, opportunity, or just want to connect?
+      Send me a message below.
+    </p>
+
   </header>
 
+
   <main>
-    <section class="contact-section">
 
-      <form class="contact-form" action="/thanks" method="POST">
+    <section class="contact-page">
 
-        <label for="firstName">First Name</label>
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          required
-        >
+      <div class="contact-intro">
 
-        <label for="lastName">Last Name</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          required
-        >
+        <p class="section-label">Let's Connect</p>
 
-        <label for="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-        >
+        <h2>Get in touch.</h2>
 
-        <button type="submit">Send</button>
+        <p>
+          I'm always open to connecting about software development opportunities,
+          projects, or anything related to technology.
+        </p>
+
+        <p class="contact-note">
+          Fill out the form and I'll receive your message directly.
+        </p>
+
+        <div class="contact-socials">
+  <p>Prefer to connect directly?</p>
+
+  <div class="contact-social-links">
+    <a
+      href="https://www.linkedin.com/in/isaiah-rodriguez-aa5628270/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      LinkedIn ↗
+    </a>
+
+    <a
+      href="https://github.com/isaiahr06"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub ↗
+    </a>
+  </div>
+</div>
+
+      </div>
+
+
+      <form
+        class="contact-form"
+        action="/thanks"
+        method="POST"
+      >
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="firstName">
+              First Name
+            </label>
+
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="lastName">
+              Last Name
+            </label>
+
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="email">
+            Email
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="message">
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="7"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <button type="submit">
+          Send Message
+        </button>
 
       </form>
 
     </section>
+
   </main>
 
 </body>
+
 </html>

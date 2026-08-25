@@ -17,25 +17,45 @@
   </header>
 
   <main>
-    <section class="skills-section">
-      <div class="skills-grid">
+    <section class="skills-page">
 
-        <% skills.forEach(skill => { %>
+  <div class="skills-heading">
+    <p class="section-label">Toolbox</p>
+    <h2>Technical Skills</h2>
 
-          <div class="skill-card">
-            <h3><%= skill.category %></h3>
+    <p>
+      Technologies and tools I’ve worked with across frontend,
+      backend, databases, and development workflows.
+    </p>
+  </div>
 
-            <div class="skill-list">
-              <% skill.items.forEach(item => { %>
-                <span class="skill"><%= item %></span>
-              <% }) %>
-            </div>
-          </div>
+  <div class="skills-stack">
 
-        <% }) %>
+    <% skills.forEach((skill, index) => { %>
 
-      </div>
-    </section>
+      <article class="skill-row">
+
+        <div class="skill-number">
+          0<%= index + 1 %>
+        </div>
+
+        <div class="skill-category">
+          <h3><%= skill.category %></h3>
+        </div>
+
+        <div class="skill-items">
+          <% skill.items.forEach(item => { %>
+            <span><%= item %></span>
+          <% }) %>
+        </div>
+
+      </article>
+
+    <% }) %>
+
+  </div>
+
+</section>
   </main>
 
 </body>

@@ -2,7 +2,46 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
+const fs = require('fs');
+const { google } = require('googleapis');
+
 const app = express();
+
+const SCOPES = [
+  'https://www.googleapis.com/auth/spreadsheets'
+];
+
+const TOKEN_PATH = 'token.json';
+
+const spreadsheetId =
+  '1M60CnruxHFXZZTDEEWvHSlL2uM5QcBeEtzOff9fxgNc';
+
+const credentials = JSON.parse(
+  fs.readFileSync('credentials.json')
+);
+
+const {
+  client_secret,
+  client_id,
+  redirect_uris
+} = credentials.web;
+
+const oAuth2Client = new google.auth.OAuth2(
+  client_id,
+  client_secret,
+  redirect_uris[0]
+);
+
+
+// If authorized before,
+// load the saved token.
+if (fs.existsSync(TOKEN_PATH)) {
+  const token = JSON.parse(
+    fs.readFileSync(TOKEN_PATH)
+  );
+
+  oAuth2Client.setCredentials(token);
+}
 
 
 // Middleware
@@ -163,6 +202,7 @@ const certifications = [
 ];
 
 
+
 // ==========================
 // ROUTES
 // ==========================
@@ -202,16 +242,116 @@ app.get('/contact', (req, res) => {
 
 
 // Contact Form Submission
-app.post('/thanks', (req, res) => {
-  res.render('thanks', {
-    contact: req.body
-  });
+app.post('/thanks', async (req, res) => {
+console.log('Contact form submitted successfully');
+
+  try {
+    const {
+      firstName,
+      lastName,
+      email,
+      message
+    } = req.body;
+
+    const sheets = google.sheets({
+      version: 'v4',
+      auth: oAuth2Client
+    });
+
+    await sheets.spreadsheets.values.append({
+      spreadsheetId,
+
+      range: 'Sheet1!A:E',
+
+      valueInputOption: 'USER_ENTERED',
+
+      insertDataOption: 'INSERT_ROWS',
+
+      resource: {
+        values: [
+          [
+            firstName,
+            lastName,
+            email,
+            message,
+            new Date().toLocaleString()
+          ]
+        ]
+      }
+    });
+
+    console.log('Google Sheets row added');
+
+    res.render('thanks', {
+      contact: req.body
+    });
+
+  } catch (error) {
+    console.error('Google Sheets error:', error);
+
+    res.status(500).send(
+      'There was a problem sending your message. Please try again.'
+    );
+  }
 });
 
 
 // ==========================
 // SERVER
 // ==========================
+
+app.get('/sheets-auth', async (req, res) => {
+
+  const code = req.query.code;
+
+  if (!code) {
+    return res
+      .status(400)
+      .send('Authorization code was not provided.');
+  }
+
+  try {
+
+    const { tokens } =
+      await oAuth2Client.getToken(code);
+
+    oAuth2Client.setCredentials(tokens);
+
+    fs.writeFileSync(
+      TOKEN_PATH,
+      JSON.stringify(tokens)
+    );
+
+    console.log('Google Sheets token saved.');
+
+    res.send(`
+      <h2>Google Sheets connected successfully.</h2>
+      <p>You can close this page and return to your portfolio.</p>
+    `);
+
+  } catch (error) {
+
+    console.error(
+      'Google authorization error:',
+      error
+    );
+
+    res
+      .status(500)
+      .send('Google authorization failed.');
+  }
+});
+
+app.get('/authorize-sheets', (req, res) => {
+
+  const authUrl = oAuth2Client.generateAuthUrl({
+    access_type: 'offline',
+    scope: SCOPES,
+    prompt: 'consent'
+  });
+
+  res.redirect(authUrl);
+});
 
 app.listen(8080, () => {
   console.log('listening at http://localhost:8080');

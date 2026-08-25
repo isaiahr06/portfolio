@@ -19,67 +19,75 @@
   <main>
 
     <section class="experience-section">
-      <h2>Professional Experience</h2>
+  <p class="section-label">Career</p>
+  <h2>Professional Experience</h2>
 
-      <div class="experience-list">
+  <div class="timeline">
 
-        <% experience.forEach(item => { %>
+    <% experience.forEach(item => { %>
 
-          <article class="experience-card">
+      <article class="timeline-item">
 
-            <div class="experience-header">
-              <div>
-                <h3><%= item.role %></h3>
-                <p class="company"><%= item.company %></p>
-              </div>
+        <div class="timeline-marker"></div>
 
-              <span class="experience-period">
-                <%= item.period %>
-              </span>
-            </div>
+        <div class="timeline-period">
+          <%= item.period %>
+        </div>
 
-            <ul>
-              <% item.bullets.forEach(bullet => { %>
-                <li><%= bullet %></li>
-              <% }) %>
-            </ul>
+        <div class="timeline-content">
+          <h3><%= item.role %></h3>
 
-          </article>
+          <p class="company">
+            <%= item.company %>
+          </p>
 
-        <% }) %>
+          <ul>
+            <% item.bullets.forEach(bullet => { %>
+              <li><%= bullet %></li>
+            <% }) %>
+          </ul>
+        </div>
 
-      </div>
-    </section>
+      </article>
+
+    <% }) %>
+
+  </div>
+</section>
 
     <section class="education-section">
-      <h2>Education & Certifications</h2>
+  <p class="section-label">Background</p>
+  <h2>Education & Certifications</h2>
 
-      <div class="education-grid">
+  <div class="education-layout">
 
-        <div class="education-card">
-          <h3>Education</h3>
+    <div class="education-block">
+      <h3>Education</h3>
 
-          <% education.forEach(item => { %>
-            <div class="education-item">
-              <h4><%= item.degree %></h4>
-              <p><%= item.school %></p>
-              <span><%= item.period %></span>
-            </div>
-          <% }) %>
-        </div>
+      <% education.forEach(item => { %>
+        <div class="education-entry">
+          <span class="education-year"><%= item.period %></span>
 
-        <div class="education-card">
-          <h3>Certifications</h3>
-
-          <div class="certification-list">
-            <% certifications.forEach(cert => { %>
-              <span class="certification"><%= cert %></span>
-            <% }) %>
+          <div>
+            <h4><%= item.degree %></h4>
+            <p><%= item.school %></p>
           </div>
         </div>
+      <% }) %>
+    </div>
 
+    <div class="education-block">
+      <h3>Certifications</h3>
+
+      <div class="certification-list">
+        <% certifications.forEach(cert => { %>
+          <span class="certification"><%= cert %></span>
+        <% }) %>
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
 
   </main>
 
