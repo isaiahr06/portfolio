@@ -9,59 +9,88 @@
 
 <body>
 
-  <header class="hero">
+  <header class="hero hero-home">
+
     <%- include('partials/nav') %>
 
-    <div class="hero-content">
-      <p class="eyebrow">Software Developer</p>
-      <h1>Isaiah Rodriguez</h1>
+    <div class="hero-home-grid">
+
+      <div class="hero-copy">
+        <p class="eyebrow">Software Developer</p>
+
+        <h1>Isaiah Rodriguez</h1>
+
+        <p class="hero-lead">
+          Building practical web applications across the frontend and backend
+          with JavaScript, React, Node.js, APIs, and databases.
+        </p>
+
+        <div class="hero-actions">
+          <a href="/projects" class="primary-button">
+            View Projects
+          </a>
+
+          <a href="/contact" class="secondary-button">
+            Contact Me
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>MongoDB</span>
+          <span>SQL</span>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-glow"></div>
+
+        <img
+          src="/images/headshot.png"
+          alt="Isaiah Rodriguez"
+          class="hero-photo"
+        >
+      </div>
+
     </div>
+
   </header>
 
   <main>
-  <section class="home-about">
 
-    <div class="headshot-container">
-      <img
-        src="/images/headshot.png"
-        alt="Isaiah Rodriguez"
-        class="headshot"
-      >
-    </div>
+    <section class="home-intro">
 
-    <div class="home-about-content">
-      <p class="section-label">ABOUT ME</p>
+      <div class="home-intro-label">
+        <span>01</span>
+        <p>About</p>
+      </div>
 
-      <h2>Building the next chapter through software.</h2>
+      <div class="home-intro-content">
+        <h2>From enterprise IT to software development.</h2>
 
-      <p>
-        I'm a software developer with a background in information technology
-        and six years of experience in the United States Air Force. After
-        earning my B.S. in Computer Science, I began focusing on building
-        modern web applications and strengthening my skills across frontend
-        and backend development.
-      </p>
+        <p>
+          I’m a software developer with a background in information technology
+          and six years of experience in the United States Air Force. After
+          earning my B.S. in Computer Science, I shifted my focus toward
+          building modern web applications and strengthening my skills across
+          frontend and backend development.
+        </p>
 
-      <p>
-        I enjoy turning ideas into practical applications using technologies
-        like JavaScript, React, Node.js, APIs, and databases. I'm continuing
-        to grow as a developer while preparing for the next stage of my
-        career in software engineering.
-      </p>
+        <p>
+          I enjoy solving problems, learning new technologies, and turning
+          ideas into functional applications that are useful, maintainable,
+          and easy to work with.
+        </p>
 
-      <div class="home-actions">
-        <a href="/projects" class="home-button">
-          View Projects
-        </a>
-
-        <a href="/contact" class="home-text-link">
-          Contact Me →
+        <a href="/experience" class="inline-link">
+          View my experience →
         </a>
       </div>
-    </div>
 
-  </section>
-</main>
+    </section>
+
+  </main>
 
 </body>
 </html>
