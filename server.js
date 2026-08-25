@@ -97,21 +97,43 @@ const experience = [
   {
     company: 'Creating Coding Careers',
     role: 'Software Development Apprentice',
-    period: '2026',
+    period: 'June 2026 - Present',
     bullets: [
-      'Developed full-stack web applications using JavaScript, React, Node.js, and databases.',
-      'Built and deployed projects while practicing testing, APIs, Git, and modern development workflows.',
-      'Strengthened backend development skills through Node.js, Express, MongoDB, SQL, and Redis.'
+      'Developed responsive web applications using JavaScript, React, HTML, CSS, and REST APIs following modern front-end development practices.',
+      'Developed multiple React and JavaScript applications utilizing REST APIs, component-based architecture, and responsive design principles.',
+      'Collaborated with mentors and fellow developers using Git/GitHub to manage source code and implement feature enhancements.',
+      'Solved algorithmic programming challenges involving arrays, strings, objects, recursion, and data manipulation using JavaScript.',
+      'Designed, tested, and deployed full-stack and front-end applications while following clean code and version control best practices.'
     ]
   },
   {
     company: 'United States Air Force',
-    role: 'IT / Technical Support',
-    period: '6 Years',
+    role: 'Capabilities Manager',
+    period: 'October 2024 - June 2026',
     bullets: [
-      'Supported technical systems and resolved hardware, software, and configuration issues.',
-      'Provided troubleshooting and technical assistance in a mission-focused environment.',
-      'Developed experience in teamwork, leadership, accountability, and problem solving.'
+      'Managed 24/7 global IT infrastructure by monitoring and resolving outages supporting more than 50,000 analysts worldwide while maintaining over 4,000 network assets across 600+ locations.',
+      'Managed incident tracking, system analysis, and enterprise record management for mission-critical technology infrastructure.'
+    ]
+  },
+  {
+    company: 'United States Air Force',
+    role: 'Tactical Communication Technician',
+    period: 'May 2022 - October 2024',
+    bullets: [
+      'Configured routers, switches, modems, and other networking equipment for optimal performance.',
+      'Maintained IT hardware and software for local computers.',
+      'Configured, coordinated, and set up portable satellite dishes such as the Hawkeye 3 Lite, Hawkeye Heavy, and Starlink.',
+      'Developed user training materials for new communication systems being deployed.'
+    ]
+  },
+  {
+    company: 'United States Air Force, Eielson AFB, AK',
+    role: 'Client Systems Technician',
+    period: 'January 2021 - May 2022',
+    bullets: [
+      'Procured, installed, configured, monitored, and maintained IT hardware and software in accordance with DoD policy and guidance.',
+      'Troubleshot program and system malfunctions to restore normal functioning.',
+      'Linked computer systems within the organization to increase compatibility and enable information sharing.'
     ]
   }
 ];
