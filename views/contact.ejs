@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Isaiah</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/contact">Contact</a>
+      <a href="https://github.com/isaiahr06" target="_blank">GitHub</a>
+    </nav>
+
+    <h1>Contact Me</h1>
+    <p>Have a question or want to connect? Send me a message below.</p>
+  </header>
+
+  <main>
+    <section class="contact-section">
+
+      <form class="contact-form" action="/thanks" method="POST">
+
+        <label for="firstName">First Name</label>
+        <input
+          id="firstName"
+          name="firstName"
+          type="text"
+          required
+        >
+
+        <label for="lastName">Last Name</label>
+        <input
+          id="lastName"
+          name="lastName"
+          type="text"
+          required
+        >
+
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+        >
+
+        <button type="submit">Send</button>
+
+      </form>
+
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills | Isaiah Rodriguez</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/skills">Skills</a>
+      <a href="/experience">Experience</a>
+      <a href="/projects">Projects</a>
+      <a href="/resume/Isaiah-Rodriguez-Resume.pdf" target="_blank">Resume</a>
+      <a href="/contact">Contact</a>
+      <a href="https://github.com/isaiahr06" target="_blank">GitHub</a>
+    </nav>
+
+    <h1>Skills</h1>
+    <p>Technologies and tools I've worked with across frontend and backend development.</p>
+  </header>
+
+  <main>
+    <section class="skills-section">
+      <div class="skills-grid">
+
+        <% skills.forEach(skill => { %>
+
+          <div class="skill-card">
+            <h3><%= skill.category %></h3>
+
+            <div class="skill-list">
+              <% skill.items.forEach(item => { %>
+                <span class="skill"><%= item %></span>
+              <% }) %>
+            </div>
+          </div>
+
+        <% }) %>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

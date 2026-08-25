@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/contact">Contact</a>
+      <a href="https://github.com/isaiahr06" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="thank-you-card">
+      <h1>
+        Thank you, <%= contact.firstName %> <%= contact.lastName %>.
+      </h1>
+
+      <p>
+        Your contact information was submitted successfully.
+      </p>
+
+      <a href="/">Return Home</a>
+    </section>
+  </main>
+
+</body>
+</html>
