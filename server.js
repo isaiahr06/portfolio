@@ -61,12 +61,12 @@ const projects = [
     githubUrl: 'https://github.com/isaiahr06/react100-nfl-fantasy-analyzer'
   },
   {
-    name: 'Very Simple Todo App',
-    image: '/images/vstda-preview.png',
-    description: 'A lightweight todo application for adding and managing tasks.',
-    tech: 'JavaScript, HTML, CSS',
-    liveUrl: 'https://react100-vstda-project-ashy.vercel.app/',
-    githubUrl: 'https://github.com/isaiahr06/react100-vstda-project'
+    name: 'Budget Tracker',
+    image: '/images/budget-tracker-preview.png',
+    description: 'Track income and expenses, monitor your balance, and save budget data between sessions.',
+    tech: 'React, Context API, useReducer, Tailwind CSS',
+    liveUrl: 'https://react200-budget-tracker-project-pi.vercel.app/',
+    githubUrl: 'https://github.com/isaiahr06/react200-budget-tracker-project.git'
   },
   {
     name: 'San Diego Top Spots',
