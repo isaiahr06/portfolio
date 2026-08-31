@@ -69,6 +69,14 @@ const projects = [
     githubUrl: 'https://github.com/isaiahr06/react200-budget-tracker-project.git'
   },
   {
+    name: 'Weather App',
+    image: '/images/weather-app-preview.png',
+    description: 'Search for a city to view current weather conditions, temperature, humidity, and wind speed.',
+    tech: 'React, Context API, useReducer, Tailwind CSS, Express, OpenWeatherMap API',
+    liveUrl: 'https://react200-weather-app-project.vercel.app/',
+    githubUrl: 'https://github.com/isaiahr06/react200-weather-app-project'
+  },
+  {
     name: 'San Diego Top Spots',
     image: '/images/san-diego-top-spots-preview.png',
     description: 'Explore popular San Diego destinations with descriptions and map links.',
